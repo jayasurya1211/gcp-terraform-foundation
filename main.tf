@@ -5,6 +5,11 @@ terraform {
       version = "~> 5.0"
     }
   }
+
+  backend "gcs" {
+    bucket = "de-project-512112-tfstate"
+    prefix = "foundation/state"
+  }
 }
 
 provider "google" {
@@ -19,7 +24,13 @@ resource "google_storage_bucket" "raw" {
 }
 
 resource "google_bigquery_dataset" "analytics" {
-  dataset_id = "de_pipeline_tf"
-  location   = var.region
+  dataset_id                 = "de_pipeline_tf"
+  location                   = var.region
   delete_contents_on_destroy = true
+}
+locals {
+  labels = {
+    environment = var.environment
+    managed_by  = "terraform"
+  }
 }
