@@ -37,5 +37,6 @@ resource "google_composer_environment" "main" {
   depends_on = [
     google_project_iam_member.composer_worker,
     google_service_account_iam_member.composer_agent,
+    google_project_service.apis,
   ]
 }
