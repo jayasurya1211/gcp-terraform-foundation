@@ -30,4 +30,6 @@ module "data_lake" {
   region     = var.region
   dataset_id = "de_pipeline_tf"
   labels     = local.labels
+
+  depends_on = [google_project_service.apis]
 }
