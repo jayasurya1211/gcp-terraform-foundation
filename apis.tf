@@ -5,6 +5,8 @@ locals {
     "composer.googleapis.com",
     "iamcredentials.googleapis.com",
     "compute.googleapis.com",
+    "artifactregistry.googleapis.com",
+    "run.googleapis.com",
   ]
 }
 
