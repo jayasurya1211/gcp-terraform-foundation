@@ -7,11 +7,11 @@ output "dataset_id" {
 }
 
 output "airflow_uri" {
-  value = google_composer_environment.main.config[0].airflow_uri
+  value = try(google_composer_environment.main[0].config[0].airflow_uri, null)
 }
 
 output "dag_gcs_prefix" {
-  value = google_composer_environment.main.config[0].dag_gcs_prefix
+  value = try(google_composer_environment.main[0].config[0].dag_gcs_prefix, null)
 }
 output "raw_bucket" {
   value = google_storage_bucket.raw.name

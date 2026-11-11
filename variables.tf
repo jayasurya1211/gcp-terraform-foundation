@@ -11,3 +11,7 @@ variable "environment" {
   type    = string
   default = "dev"
 }
+variable "enable_composer" {
+  type    = bool
+  default = false
+}
